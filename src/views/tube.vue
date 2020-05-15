@@ -43,14 +43,14 @@ export default {
             [153.4, 0.6],
             [52.6, 53.3],
             [68.5, 185.5]
-        ].map(([x, z]) => new Vector3(x,0, z))
+        ].map(([x, z]) => new Vector3(x, 0, z))
         // 创建一条平滑的曲线
         const path = new CatmullRomCurve3(points)
         // 创建3d管道，tubularSegments = 切割tube的份数  radiusSegments = 切割tube四周的份数
         const geometry = new TubeGeometry(path, 600, 4, 32, true)
         // 给每一个面设定颜色
         for (let i = 0, j = geometry.faces.length; i < j; i++) {
-            geometry.faces[i].color = new Color("hsl("+Math.floor(Math.random()*360)+",50%,50%)")
+            geometry.faces[i].color = new Color('hsl('+Math.floor(Math.random()*360)+',50%,50%)')
         }
         // 材质：使用什么颜色/渲染哪一面
         const material = new MeshLambertMaterial({
